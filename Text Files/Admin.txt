@@ -1,0 +1,8 @@
+#pragma once
+#include "Employee.h"
+#include "Validation.h"
+class Admin : public Employee
+{
+
+};
+

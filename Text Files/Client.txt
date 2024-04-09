@@ -1,0 +1,58 @@
+#pragma once
+#include "Person.h"
+#include "Validation.h"
+
+class Client : public Person
+{
+private:
+	double balance = 0;
+public:
+	//Constructors
+	Client(string name, string password, int id, double balance)
+		: Person(Validation::validName(name),
+			Validation::validPassword(password), id),
+		balance(Validation::validBalance(balance))
+	{}
+
+	//Getters
+	double getBalance()
+	{
+		return balance;
+	}
+	//Setters
+	void setBalance(double balance)
+	{
+		this->balance = Validation::validBalance(balance);
+	}
+
+	//Other Methods
+	void deposit(double amount)
+	{
+		if (amount > 0)
+		{
+			balance += amount;
+		}
+	}
+	void withdraw(double amount)
+	{
+		if (amount > 0)
+		{
+			balance -= amount;
+		}
+	}
+	void transferTo(double amount, Client& recipient)
+	{
+			this->withdraw(amount);
+			recipient.deposit(amount);
+	}
+	void checkBalance()
+	{
+		cout << "Balance is: " << balance;
+	}
+	void display()
+	{
+		cout << "Name: " << name << endl
+			<< "ID: " << id << endl
+			<< "Balance: " << balance << endl;
+	}
+};

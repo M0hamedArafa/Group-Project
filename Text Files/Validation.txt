@@ -1,0 +1,52 @@
+#pragma once
+#include <iostream>
+using namespace std;
+
+class Validation
+{
+private:
+	static bool isAlpha(const string& string)
+	{
+		for (char c : string)
+		{
+			if (!isalpha(c))
+			{
+				return false;
+			}
+			return true;
+		}
+	}
+public:
+static string validName(const string& name)
+{
+	if ((name.length() >= 5 && name.length() <= 20) && isAlpha(name))
+	{
+	return name;
+	}
+	return "Invalid Name";
+}
+static string validPassword(const string& password)
+{
+	if ((password.length() >= 8 && password.length() <= 20))
+	{
+		return password;
+	}
+	return "Invalid Password";
+}
+static double validBalance(const double& balance)
+{
+	if (balance >= 1500)
+	{
+		return balance;
+	}
+	return 0;
+}
+static double validSalary(const double& salary)
+{
+	if (salary >= 5000)
+	{
+		return salary;
+	}
+	return 0;
+}
+};
