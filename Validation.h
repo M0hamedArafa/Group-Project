@@ -81,11 +81,11 @@ private:
 	{
 		for (char c : string)
 		{
-			if (!isalpha(c) || c == ' ')
+			if (!isalpha(c) || c != ' ')
 			{
 				return false;
 			}
-			return true;
 		}
+			return true;
 	}
 };
