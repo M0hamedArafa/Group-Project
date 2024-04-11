@@ -6,11 +6,11 @@ using namespace std;
 
 int main()
 {
-	Client x("Micheal", "12345678", 1, 5000);
-	Client y("Stevens", "654321", 2, 10000);
-	Employee z("Franklin", "87654321", 3, 100000);
+	Client* x = new Client("Micheal", "12345678", 1, 5000);
+	Client* y = new Client("Stevens", "654321", 2, 10000);
+	Employee* z = new Employee("Franklin", "87654321", 3, 100000);
 
-	z.addClient(x);
+	//z.addClient(x);
 
 	//FileManager::addClient(x);
 }
