@@ -20,10 +20,20 @@ public:
 	{
 		if (password.length() >= 8 && password.length() <= 20)
 		{
-			return true;
+			bool hasUppercase = false;
+			bool hasLowercase = false;
+			bool hasDigit = false;
+			for (char c : password)
+			{
+				if (isupper(c)) hasUppercase = true;
+				if (islower(c)) hasLowercase = true;
+				if (isdigit(c)) hasDigit = true;
+			}
+			return hasUppercase && hasLowercase && hasDigit;
 		}
 		return false;
 	}
+
 	static bool isValidBalance(const double& balance)
 	{
 		if (balance >= 1500)
@@ -81,7 +91,7 @@ private:
 	{
 		for (char c : string)
 		{
-			if (!isalpha(c) || c != ' ')
+			if (!isalpha(c) && c != ' ')
 			{
 				return false;
 			}
@@ -89,3 +99,15 @@ private:
 			return true;
 	}
 };
+
+
+
+// I dunno why the below code dosen't work.
+	//static bool isValidPassword(const string& password)
+	//{
+	//	if (password.length() >= 8 && password.length() <= 20)
+	//	{
+	//		return true;
+	//	}
+	//	return false;
+	//}

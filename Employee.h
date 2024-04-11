@@ -50,7 +50,7 @@ public:
 		}
 		else
 		{
-			cout << "Client has invalid Properties.";
+			cout << "Client has invalid Properties.\n";
 		}
 	}
 
@@ -60,17 +60,17 @@ public:
 			<< "Employee ID: " << id << endl
 			<< "Employee Salary: " << salary << endl;
 	}
-//private:
+private:
 	 static bool isValidClient(Client& obj)
 	{
-		//if (
-		//	Validation::isValidName(obj.getName()) &&
-		//	Validation::isValidPassword(obj.getPassword()) &&
-		//	Validation::isValidBalance(obj.getBalance())
-		//	)
-		//{
-		//	return true;
-		//}
+		if (
+			Validation::isValidName(obj.getName()) &&
+			Validation::isValidPassword(obj.getPassword()) &&
+			Validation::isValidBalance(obj.getBalance())
+			)
+		{
+			return true;
+		}
 		return false;
 	}
 };

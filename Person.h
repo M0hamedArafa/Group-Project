@@ -15,15 +15,15 @@ public:
 		: name(Validation::validName(name)), password(Validation::validPassword(password)), id(id)
 	{}
 	//Getters
-	virtual string getName()
+	 string getName()
 	{
 		return name;
 	}
-	virtual string getPassword()
+	 string getPassword()
 	{
 		return password;
 	}
-	virtual int getID()
+	 int getID()
 	{
 		return id;
 	}

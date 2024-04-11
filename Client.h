@@ -28,7 +28,7 @@ public:
 		}
 		else
 		{
-			cout << "Invalid Balance.";
+			cout << "Invalid Balance.\n";
 		}
 	}
 
@@ -41,18 +41,18 @@ public:
 		}
 		else
 		{
-			cout << "Can't deposit a negative number";
+			cout << "Can't deposit a negative number\n";
 		}
 	}
 	void withdraw(double amount)
 	{
 		if (amount < 0)
 		{
-			cout << "Can't withdraw a negative number";
+			cout << "Can't withdraw a negative number\n";
 		}
 		else if (balance < amount)
 		{
-			cout << "Not enough balance";
+			cout << "Not enough balance\n";
 		}
 		else
 		{
@@ -68,12 +68,12 @@ public:
 		}
 		else
 		{
-			cout << "Invalid Balance in either account.";
+			cout << "Invalid Balance in either account.\n";
 		}
 	}
 	void checkBalance()
 	{
-		cout << "Balance is: " << balance;
+		cout << "Balance is: " << balance << endl;
 	}
 	void display()
 	{
