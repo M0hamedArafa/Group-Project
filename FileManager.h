@@ -8,8 +8,8 @@
 class FileManager
 {
 public:
-	   void addClient(Client obj)
-	 {
+	void addClient(Client obj)
+	{
 		fstream clientFile;
 		clientFile.open("Client_Database.txt", ios::app);
 		if (clientFile.is_open())
@@ -17,7 +17,7 @@ public:
 			clientFile << to_string(obj.getID()) + '#' + obj.getName() + '#' + obj.getPassword() + '#' + to_string(obj.getBalance()) << endl;
 		}
 		clientFile.close();
-	 }
+	}
 	 //void addEmployee(Employee& obj)
 	 //{
 		// fstream employeeFile;

@@ -29,29 +29,29 @@ public:
 	}
 
 	//Setters 
-	 void setName(string _name)
+	void setName(string _name)
 	{
-		 if (Validation::isValidName(_name))
-		 {
-			 this->name = _name;
-		 }
-		 else
-		 {
-			 cout << "Invalid Name.";
-		 }
+		if (Validation::isValidName(_name))
+		{
+			this->name = _name;
+		}
+		else
+		{
+			cout << "Invalid Name.";
+		}
 	}
-	 void setPassword(string _password)
+	void setPassword(string _password)
 	{
-		 if (Validation::isValidPassword(_password))
-		 {
-			 this->password = _password;
-		 }
-		 else
-		 {
-			 cout << "Invalid Password.";
-		 }
+		if (Validation::isValidPassword(_password))
+		{
+			this->password = _password;
+		}
+		else
+		{
+			cout << "Invalid Password.";
+		}
 	}
-	 void setID(int id)
+	void setID(int id)
 	{
 		this->id = id;
 	}
