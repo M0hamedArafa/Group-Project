@@ -14,6 +14,10 @@ public:
 	Person(string name, string password, int id)
 		: name(Validation::validName(name)), password(Validation::validPassword(password)), id(id)
 	{}
+	virtual ~Person()
+	{
+		delete this;
+	}
 	//Getters
 	virtual string getName()
 	{

@@ -8,7 +8,7 @@
 class FileManager
 {
 public:
-	void addClient(Client obj)
+	static void addClient(Client obj)
 	{
 		fstream clientFile;
 		clientFile.open("Client_Database.txt", ios::app);

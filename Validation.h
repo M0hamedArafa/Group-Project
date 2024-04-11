@@ -1,6 +1,9 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "Person.h"
+#include "Client.h"
+#include "Admin.h"
 using namespace std;
 
 
@@ -73,6 +76,37 @@ static double validSalary(const double& _salary)
 		return _salary;
 	}
 	return -1;
+}
+
+
+bool isValidObject(Person obj) //Validation for the object before adding it to database.
+{
+	if (
+		!isValidName(obj.getName()) ||
+		!isValidPassword(obj.getPassword()) )
+	{
+		return false;
+	}
+	
+	if (
+		Client* c = dynamic_cast<Client*>(obj) //Check if Person is a Client.
+	)
+	{
+		if (!isValidBalance(c->getBalance()))
+		{
+			return false;
+		}
+	}
+	if (
+		Employee* e = dynamic_cast<Employee*>(obj) //Check if Person is an Employee.
+	)
+	{
+		if (!isValidSalary(e->getSalary()))
+		{
+			return false;
+		}
+	}
+	return true;
 }
 
 

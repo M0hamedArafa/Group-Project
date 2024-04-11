@@ -12,7 +12,7 @@ int main()
 
 	//z.addClient(x);
 
-	//FileManager::addClient(x);
+	FileManager::addClient(*x);
 }
 	////Checking Validation in Constructors.
 	//Client x("Micheal", "123456", 1, 5000);
