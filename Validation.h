@@ -18,7 +18,7 @@ public:
 	}
 	static bool isValidPassword(const string& password)
 	{
-		if ((password.length() >= 8 && password.length() <= 20))
+		if (password.length() >= 8 && password.length() <= 20)
 		{
 			return true;
 		}
