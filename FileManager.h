@@ -9,9 +9,9 @@
 class FileManager
 {
 public:
-	fstream clientFile;
-	fstream employeeFile;
-	fstream adminFile;
+	static fstream clientFile;
+	static fstream employeeFile;
+	static fstream adminFile;
 
 	//Validation for objects before adding them to database.
 
