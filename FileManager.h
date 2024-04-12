@@ -9,7 +9,7 @@
 class FileManager
 {
 public:
-	//Validation for objects before adding it to database.
+	//Validation for objects before adding them to database.
 
 	static bool isValidClient(Client& obj)
 	{
