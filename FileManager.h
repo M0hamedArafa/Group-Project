@@ -1,6 +1,7 @@
 #pragma once
 #include "DataSourceInterface.h"
 #include "Client.h"
+#include "Employee.h"
 #include "Admin.h"
 #include "Validation.h"
 #include <fstream>
@@ -27,28 +28,28 @@ public:
 		}
 		return false;
 	}
-	//static bool isValidEmployee(Employee& obj)
-	//{
-	//	if (
-	//		Validation::isValidName(obj.getName()) &&
-	//		Validation::isValidPassword(obj.getPassword()) &&
-	//		Validation::isValidSalary(obj.getSalary())
-	//		)
-	//	{
-	//		return true;
-	//	}
-	//	return false;
-	//}
-	//static bool isValidAdmin(Admin& obj)
-	//{
-	//	if (
-	//		isValidEmployee(obj)
-	//		)
-	//	{
-	//		return true;
-	//	}
-	//	return false;
-	//}
+	static bool isValidEmployee(Employee& obj)
+	{
+		if (
+			Validation::isValidName(obj.getName()) &&
+			Validation::isValidPassword(obj.getPassword()) &&
+			Validation::isValidSalary(obj.getSalary())
+			)
+		{
+			return true;
+		}
+		return false;
+	}
+	static bool isValidAdmin(Admin& obj)
+	{
+		if (
+			isValidEmployee(obj)
+			)
+		{
+			return true;
+		}
+		return false;
+	}
 
 	void addClient(Client obj)
 	{
@@ -66,22 +67,22 @@ public:
 			cout << "Client has invalid Properties.";
 		}
 	}
-	 //void addEmployee(Employee& obj)
-	 //{
-		// if (isValidEmployee(obj))
-		// {
-		//	 employeeFile.open("Employee_Database.txt", ios::app);
-		//	 if (employeeFile.is_open())
-		//	 {
-		//		 employeeFile << to_string(obj.getID()) + '#' + obj.getName() + '#' + obj.getPassword() + '#' + to_string(obj.getSalary()) << endl;
-		//	 }
-		//	 employeeFile.close();
-		// }
-		// else
-		// {
-		//	 cout << "Employee has invalid Properties.";
-		// }
-		// 
+	 void addEmployee(Employee& obj)
+	 {
+		 if (isValidEmployee(obj))
+		 {
+			 employeeFile.open("Employee_Database.txt", ios::app);
+			 if (employeeFile.is_open())
+			 {
+				 employeeFile << to_string(obj.getID()) + '#' + obj.getName() + '#' + obj.getPassword() + '#' + to_string(obj.getSalary()) << endl;
+			 }
+			 employeeFile.close();
+		 }
+		 else
+		 {
+			 cout << "Employee has invalid Properties.";
+		 }
+		 
 	 //}
 	 //void addAdmin(Admin& obj) 
 	 //{
