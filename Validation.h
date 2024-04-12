@@ -23,13 +23,27 @@ public:
 			bool hasUppercase = false;
 			bool hasLowercase = false;
 			bool hasDigit = false;
+			bool hashSymbol = true;
 			for (char c : password)
 			{
-				if (isupper(c)) hasUppercase = true;
-				if (islower(c)) hasLowercase = true;
-				if (isdigit(c)) hasDigit = true;
+				if (isupper(c))
+				{
+					hasUppercase = true;
+				}
+				if (islower(c))
+				{
+					hasLowercase = true;
+				}
+				if (isdigit(c))
+				{
+					hasDigit = true;
+				}
+				if (c == '#')
+				{
+					hashSymbol = true;
+				}
 			}
-			return hasUppercase && hasLowercase && hasDigit;
+			return hasUppercase && hasLowercase && hasDigit && !hashSymbol;
 		}
 		return false;
 	}
