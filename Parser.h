@@ -8,7 +8,7 @@ using namespace std;
 class Parser
 {
 public: //should be private
-	static vector<string> split(string line) //It will recieve a string, No matter from where Now !!!
+	static vector<string> split(string line)
 	{
 			vector<string> parsedData = {};
 		for (int i = 0; i < 4; i++)
@@ -20,17 +20,19 @@ public: //should be private
 			return parsedData;
 	}
 
-	//static string readFromClient(int id)
-	//{
-	//	string line;
-	//	while (getline(clientFile, line))
-	//	{
-	//		if (line[0] == id)
-	//		{
-	//			break;
-	//		}
-	//	}
-	//	return line;
-	//}
+
+	static string getClientByID(int id) { //from GPT, Probably should be private.
+		string line;
+		FileManager::clientFile.open("Client_Database.txt", ios::in);
+		while (getline(FileManager::clientFile, line)) {
+			int lineId = stoi(line.substr(0, line.find('#')));
+			if (lineId == id) {
+				FileManager::clientFile.close();
+				return line;
+			}
+		}
+		FileManager::clientFile.close();
+		return "";
+	}
 };
 
