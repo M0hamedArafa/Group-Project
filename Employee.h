@@ -23,7 +23,7 @@ public:
 		return salary;
 	}
 	//Setters
-	void setSalary(double _salary) 
+	void setSalary(double _salary)
 	{
 		if (Validation::isValidSalary(_salary))
 		{
@@ -34,18 +34,25 @@ public:
 			cout << "Invalid Salary.";
 		}
 	}
-	//Other Methods
 
+	//Database Access Methods
 	void addClient(Client obj)
 	{
-		fstream clientFile;
-		clientFile.open("Client_Database.txt", ios::app);
-		if (clientFile.is_open())
+		if (isValidClient(obj))
 		{
-			clientFile << to_string(obj.getID()) + '#' + obj.getName() + '#' + obj.getPassword() + '#' + to_string(obj.getBalance()) << endl;
+			fstream clientFile;
+			clientFile.open("Client_Database.txt", ios::app);
+			if (clientFile.is_open())
+			{
+				clientFile << to_string(obj.getID()) + '#' + obj.getName() + '#' + obj.getPassword() + '#' + to_string(obj.getBalance()) << endl;
+			}
+			clientFile.close();
 		}
-		clientFile.close();
-	}           
+		else
+		{
+			cout << "Client has invalid Properties.\n";
+		}
+	}
 
 	void display()
 	{
@@ -53,5 +60,18 @@ public:
 			<< "Employee ID: " << id << endl
 			<< "Employee Salary: " << salary << endl;
 	}
+private:
+	//Validation for objects before adding them to database.
+	bool isValidClient(Client& obj)
+	{
+		if (
+			Validation::isValidName(obj.getName()) &&
+			Validation::isValidPassword(obj.getPassword()) &&
+			Validation::isValidBalance(obj.getBalance())
+			)
+		{
+			return true;
+		}
+		return false;
+	}
 };
-
