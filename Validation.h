@@ -23,7 +23,7 @@ public:
 			bool hasUppercase = false;
 			bool hasLowercase = false;
 			bool hasDigit = false;
-			bool hashSymbol = true;
+			bool hashSymbol = false;
 			for (char c : password)
 			{
 				if (isupper(c))
