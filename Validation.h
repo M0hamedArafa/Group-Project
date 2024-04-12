@@ -18,12 +18,36 @@ public:
 	}
 	static bool isValidPassword(const string& password)
 	{
-		if ((password.length() >= 8 && password.length() <= 20))
+		if (password.length() >= 8 && password.length() <= 20)
 		{
-			return true;
+			bool hasUppercase = false;
+			bool hasLowercase = false;
+			bool hasDigit = false;
+			bool hashSymbol = false;
+			for (char c : password)
+			{
+				if (isupper(c))
+				{
+					hasUppercase = true;
+				}
+				if (islower(c))
+				{
+					hasLowercase = true;
+				}
+				if (isdigit(c))
+				{
+					hasDigit = true;
+				}
+				if (c == '#')
+				{
+					hashSymbol = true;
+				}
+			}
+			return hasUppercase && hasLowercase && hasDigit && !hashSymbol;
 		}
 		return false;
 	}
+
 	static bool isValidBalance(const double& balance)
 	{
 		if (balance >= 1500)
@@ -42,38 +66,38 @@ public:
 	}
 
 	//Validation for the Constructor (Creates an Object with Invalid Properties if the parameters are invalid)
-static string validName(const string& _name)
-{
-	if (isValidName(_name))
+	static string validName(const string& _name)
 	{
-	return _name;
+		if (isValidName(_name))
+		{
+			return _name;
+		}
+		return "Invalid Name";
 	}
-	return "Invalid Name";
-}
-static string validPassword(const string& _password)
-{
-	if (isValidPassword(_password))
+	static string validPassword(const string& _password)
 	{
-		return _password;
-	}	
-	return "Invalid Password";
-}
-static double validBalance(const double& _balance)
-{
-	if (isValidBalance(_balance))
-	{
-		return _balance;
+		if (isValidPassword(_password))
+		{
+			return _password;
+		}
+		return "Invalid Password";
 	}
-	return -1;
-}
-static double validSalary(const double& _salary)
-{
-	if (isValidSalary(_salary))
+	static double validBalance(const double& _balance)
 	{
-		return _salary;
+		if (isValidBalance(_balance))
+		{
+			return _balance;
+		}
+		return -1;
 	}
-	return -1;
-}
+	static double validSalary(const double& _salary)
+	{
+		if (isValidSalary(_salary))
+		{
+			return _salary;
+		}
+		return -1;
+	}
 
 
 private:
@@ -81,11 +105,11 @@ private:
 	{
 		for (char c : string)
 		{
-			if (!isalpha(c) || c == ' ')
+			if (!isalpha(c) && c != ' ')
 			{
 				return false;
 			}
-			return true;
 		}
+		return true;
 	}
 };
