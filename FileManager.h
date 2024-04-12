@@ -9,6 +9,10 @@
 class FileManager
 {
 public:
+	fstream clientFile;
+	fstream employeeFile;
+	fstream adminFile;
+
 	//Validation for objects before adding them to database.
 
 	static bool isValidClient(Client& obj)
@@ -50,7 +54,6 @@ public:
 	{
 		if (isValidClient(obj))
 		{
-			fstream clientFile;
 			clientFile.open("Client_Database.txt", ios::app);
 			if (clientFile.is_open())
 			{
@@ -67,7 +70,6 @@ public:
 	 //{
 		// if (isValidEmployee(obj))
 		// {
-		//	 fstream employeeFile;
 		//	 employeeFile.open("Employee_Database.txt", ios::app);
 		//	 if (employeeFile.is_open())
 		//	 {
@@ -85,7 +87,6 @@ public:
 	 //{
 		// if (isValidAdmin(obj))
 		// {
-		//	 fstream adminFile;
 		//	 adminFile.open("Admin_Database.txt", ios::app);
 		//	 if (adminFile.is_open())
 		//	 {
