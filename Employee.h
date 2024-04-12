@@ -34,8 +34,8 @@ public:
 			cout << "Invalid Salary.";
 		}
 	}
-	//Other Methods
-
+	
+	//Database Access Methods
 	void addClient(Client obj)
 	{
 		if (isValidClient(obj))
@@ -61,7 +61,8 @@ public:
 			<< "Employee Salary: " << salary << endl;
 	}
 private:
-	 static bool isValidClient(Client& obj)
+	//Validation for objects before adding them to database.
+	  bool isValidClient(Client& obj)
 	{
 		if (
 			Validation::isValidName(obj.getName()) &&
