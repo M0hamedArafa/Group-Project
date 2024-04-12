@@ -5,19 +5,26 @@
 #include <fstream>
 #include <string>
 
-class FileManager
+class FileManager //I don't understand the use of this class to be honest
 {
 public:
-	void addClient(Client obj)
-	{
-		fstream clientFile;
-		clientFile.open("Client_Database.txt", ios::app);
-		if (clientFile.is_open())
-		{
-			clientFile << to_string(obj.getID()) + '#' + obj.getName() + '#' + obj.getPassword() + '#' + to_string(obj.getBalance()) << endl;
-		}
-		clientFile.close();
-	}
+	static fstream clientFile;
+	static fstream employeeFile;
+	static fstream adminFile;
+
+
+	//below this line is probably useless=============================================================
+
+	//void addClient(Client obj)
+	//{
+	//	fstream clientFile;
+	//	clientFile.open("Client_Database.txt", ios::app);
+	//	if (clientFile.is_open())
+	//	{
+	//		clientFile << to_string(obj.getID()) + '#' + obj.getName() + '#' + obj.getPassword() + '#' + to_string(obj.getBalance()) << endl;
+	//	}
+	//	clientFile.close();
+	//}
 	 //void addEmployee(Employee& obj)
 	 //{
 		// fstream employeeFile;
